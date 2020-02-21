@@ -2,51 +2,51 @@ require("pry-byebug")
 
 # binding.pry
 
-def pet_shop_name( name )
+def pet_shop_name( pet_shop )
 
-  return @pet_shop[:name]
+  return pet_shop[:name]
 
 end
 
 def total_cash( money )
 
-  return @pet_shop[:admin][:total_cash]
+  return money[:admin][:total_cash]
 
 end
 
-def add_or_remove_cash ( name, money )
+def add_or_remove_cash ( pet_shop, money )
 
   # binding.pry
-  return @pet_shop[:admin][:total_cash] += money
+  return pet_shop[:admin][:total_cash] += money
 
 
 end
 
-def pets_sold( pets )
+def pets_sold( pet_shop )
 
-  return @pet_shop[:admin][:pets_sold]
+  return pet_shop[:admin][:pets_sold]
 
 end
 
-def increase_pets_sold( pets, amount )
+def increase_pets_sold( pet_shop, amount )
 
-  return @pet_shop[:admin][:pets_sold] += amount
+  return pet_shop[:admin][:pets_sold] += amount
 
 end
 
 def stock_count( pet_shop )
 
-  total = 0
+  # total = 0
+  # binding.pry
+  # for pet in pet_shop
+  #   for animal in pet
+  #
+  #     total += 1
+  #
+  #   end
+  # end
 
-  for pet in pet_shop
-    for animal in pet
-
-      total += 1
-
-    end
-  end
-
-  return total
+  return pet_shop[:pets].size()
 
 end
 
@@ -99,6 +99,12 @@ end
 
 def add_pet_to_stock( pet_shop, new_pet )
 
-  
+    pet_shop[:pets].push( new_pet )
+    # binding.pry
+    return pet_shop
+
+end
+
+def customer_cash
 
 end
