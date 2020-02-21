@@ -33,3 +33,19 @@ def increase_pets_sold( pets, amount )
   return @pet_shop[:admin][:pets_sold] += amount
 
 end
+
+def stock_count( pets )
+
+  total = 0
+
+  for pet in pets
+    for animal in pet
+
+      total += 1
+
+    end
+  end
+
+  return total
+
+end
