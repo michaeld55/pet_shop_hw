@@ -34,11 +34,11 @@ def increase_pets_sold( pets, amount )
 
 end
 
-def stock_count( pets )
+def stock_count( pet_shop )
 
   total = 0
 
-  for pet in pets
+  for pet in pet_shop
     for animal in pet
 
       total += 1
@@ -50,11 +50,11 @@ def stock_count( pets )
 
 end
 
-def pets_by_breed( pets, breed )
+def pets_by_breed( pet_shop, breed )
 
   number_of_breed = []
 
-  for pet in pets[:pets]
+  for pet in pet_shop[:pets]
 
     if pet[:breed] == breed
       # binding.pry
@@ -66,12 +66,31 @@ def pets_by_breed( pets, breed )
 
 end
 
-def find_pet_by_name( pets, name)
+def find_pet_by_name( pet_shop, name)
 
-  for pet in pets[:pets]
+
+
+  for pet in pet_shop[:pets]
 
     if pet[:name] == name
-      return name
+
+      # binding.pry
+      return pet
+    end
+
+  end
+  return
+
+end
+
+def remove_pet_by_name( pet_shop, name)
+
+  for pet in pet_shop[:pets]
+
+    if pet[:name] == name
+
+      pet[:name].shift
+
     end
 
   end
