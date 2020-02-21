@@ -49,3 +49,31 @@ def stock_count( pets )
   return total
 
 end
+
+def pets_by_breed( pets, breed )
+
+  number_of_breed = []
+
+  for pet in pets[:pets]
+
+    if pet[:breed] == breed
+      # binding.pry
+        number_of_breed.push( breed )
+
+    end
+  end
+  return number_of_breed
+
+end
+
+def find_pet_by_name( pets, name)
+
+  for pet in pets[:pets]
+
+    if pet[:name] == name
+      return name
+    end
+
+  end
+
+end
