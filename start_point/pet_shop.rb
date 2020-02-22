@@ -65,6 +65,7 @@ def find_pet_by_name( pet_shop, pet_name)
       return pet
     end
   end
+
   return
 
 end
@@ -74,18 +75,19 @@ def remove_pet_by_name( pet_shop, pet_name)
   if pet_name = find_pet_by_name( pet_shop, pet_name)
     # binding.pry
     return pet_name[:name] = ""
-  end
 
-      # for pet in pet_shop[:pets]
-      #
-      #   if pet[:name] == name
-      #
-      #     pet[:name] = ""
-      #
-      #   end
-      #
-      # end
+  end
 end
+
+# for pet in pet_shop[:pets]
+#
+#   if pet[:name] == name
+#
+#     pet[:name] = ""
+#
+#   end
+#
+# end
 
 
 def add_pet_to_stock( pet_shop, new_pet )
@@ -126,19 +128,19 @@ end
 
 def sell_pet_to_customer( pet_shop, pet, customer )
 
-  if( pet == nil)
+  if( pet == find_pet_by_name( pet_shop, pet ))
 
     return nil
 
   elsif( customer_can_afford_pet( customer, pet ))
 
-        cost = pet[:price]
-        add_pet_to_customer( customer, pet );
-        customer_pet_count( customer );
-        remove_customer_cash( customer, cost );
-        remove_pet_by_name( pet_shop, pet);
-        add_or_remove_cash( pet_shop, cost );
-        increase_pets_sold( pet_shop, 1 );
+      cost = pet[:price]
+      add_pet_to_customer( customer, pet );
+      customer_pet_count( customer );
+      remove_customer_cash( customer, cost );
+      remove_pet_by_name( pet_shop, pet);
+      add_or_remove_cash( pet_shop, cost );
+      increase_pets_sold( pet_shop, 1 );
 
     end
-end
+  end
