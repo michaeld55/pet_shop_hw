@@ -56,12 +56,11 @@ def pets_by_breed( pet_shop, breed )
 
 end
 
-def find_pet_by_name( pet_shop, name)
+def find_pet_by_name( pet_shop, pet_name)
 
   for pet in pet_shop[:pets]
 
-    if pet[:name] == name
-
+    if pet[:name] == pet_name
       # binding.pry
       return pet
     end
@@ -70,25 +69,28 @@ def find_pet_by_name( pet_shop, name)
 
 end
 
-def remove_pet_by_name( pet_shop, name)
-
-  for pet in pet_shop[:pets]
-
-    if pet[:name] == name
-
-      pet[:name] = ""
-
-    end
-
+def remove_pet_by_name( pet_shop, pet_name)
+  # binding.pry
+  if pet_name = find_pet_by_name( pet_shop, pet_name)
+    # binding.pry
+    return pet_name[:name] = ""
   end
 
+      # for pet in pet_shop[:pets]
+      #
+      #   if pet[:name] == name
+      #
+      #     pet[:name] = ""
+      #
+      #   end
+      #
+      # end
 end
+
 
 def add_pet_to_stock( pet_shop, new_pet )
 
-    pet_shop[:pets].push( new_pet )
-    # binding.pry
-    return pet_shop
+    return pet_shop[:pets].push( new_pet )
 
 end
 
@@ -112,8 +114,7 @@ end
 
 def add_pet_to_customer( customer, pet_name )
 
-  customer[:pets].push( pet_name )
-  return customer
+  return customer[:pets].push( pet_name )
 
 end
 
