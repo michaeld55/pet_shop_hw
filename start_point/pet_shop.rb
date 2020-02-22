@@ -14,11 +14,10 @@ def total_cash( money )
 
 end
 
-def add_or_remove_cash ( pet_shop, money )
+def add_or_remove_cash( pet_shop, money )
 
   # binding.pry
   return pet_shop[:admin][:total_cash] += money
-
 
 end
 
@@ -36,16 +35,6 @@ end
 
 def stock_count( pet_shop )
 
-  # total = 0
-  # binding.pry
-  # for pet in pet_shop
-  #   for animal in pet
-  #
-  #     total += 1
-  #
-  #   end
-  # end
-
   return pet_shop[:pets].size()
 
 end
@@ -62,13 +51,12 @@ def pets_by_breed( pet_shop, breed )
 
     end
   end
+
   return number_of_breed
 
 end
 
 def find_pet_by_name( pet_shop, name)
-
-
 
   for pet in pet_shop[:pets]
 
@@ -77,7 +65,6 @@ def find_pet_by_name( pet_shop, name)
       # binding.pry
       return pet
     end
-
   end
   return
 
@@ -121,4 +108,37 @@ def customer_pet_count( customer )
 
   return customer[:pets].size()
 
+end
+
+def add_pet_to_customer( customer, pet_name )
+
+  customer[:pets].push( pet_name )
+  return customer
+
+end
+
+def customer_can_afford_pet( customer, pet )
+
+  # binding.pry
+  return customer[:cash] >= pet[:price]
+
+end
+
+def sell_pet_to_customer( pet_shop, pet, customer )
+  # binding.pry
+  if( pet == nil)
+    return nil
+    # binding.pry
+  elsif( customer_can_afford_pet( customer, pet ))
+      # binding.pry()
+        cost = pet[:price]
+        add_pet_to_customer( customer, pet );
+        customer_pet_count( customer );
+        remove_customer_cash( customer, cost );
+        remove_pet_by_name( pet_shop, pet);
+        add_or_remove_cash( pet_shop, cost );
+        increase_pets_sold( pet_shop, 1 );
+
+    end
+    # binding.pry
 end
