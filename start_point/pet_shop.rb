@@ -120,18 +120,18 @@ end
 
 def customer_can_afford_pet( customer, pet )
 
-  # binding.pry
   return customer[:cash] >= pet[:price]
 
 end
 
 def sell_pet_to_customer( pet_shop, pet, customer )
-  # binding.pry
+
   if( pet == nil)
+
     return nil
-    # binding.pry
+
   elsif( customer_can_afford_pet( customer, pet ))
-      # binding.pry()
+
         cost = pet[:price]
         add_pet_to_customer( customer, pet );
         customer_pet_count( customer );
@@ -141,5 +141,4 @@ def sell_pet_to_customer( pet_shop, pet, customer )
         increase_pets_sold( pet_shop, 1 );
 
     end
-    # binding.pry
 end
